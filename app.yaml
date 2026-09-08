@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: worker-motd
+  namespace: openshift-gitops
+spec:
+
+  project: default
+
+  source:
+    repoURL: https://github.com/bnhashmi/ocp-gitops
+    targetRevision: main
+    path: config
+
+  destination:
+    server: https://kubernetes.default.svc
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
