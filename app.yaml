@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: worker-motd
+  name: cluster-motd
   namespace: openshift-gitops
 spec:
 
