@@ -12,6 +12,6 @@ spec:
     files:
     - contents:
         source: data:;base64,KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqCiAgX19fICAgICAgICAgICAgICAgICAgICAgICAgIF9fX18gIF8gICAgIF8gIF9fIF8KIC8gXyBcIF8gX18gICBfX18gXyBfXyAgICAgICAvIF9fX3x8IHxfXyAoXykvIF98IHxfCnwgfCB8IHwgJ18gXCAvIF8gXCAnXyBcIF9fX19fXF9fXyBcfCAnXyBcfCB8IHxffCBfX3wKfCB8X3wgfCB8XykgfCAgX18vIHwgfCB8X19fX198X19fKSB8IHwgfCB8IHwgIF98IHxfCiBcX19fL3wgLl9fLyBcX19ffF98IHxffCAgICAgfF9fX18vfF98IHxffF98X3wgIFxfX3wKICAgICAgfF98CgpOb3RlOiBUaGlzIGNoYW5nZSB2aWEgTWFjaGluZUNvbmZpZyBPcGVyYXRvciAoTUNPIC0gTUNPLE1DQyxNQ0QsTUNTLE1DLE1DUCkKKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqCg==
-      mode: 444
+      mode: 420
       overwrite: true
       path: /etc/motd
