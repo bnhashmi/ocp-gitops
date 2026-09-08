@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
   - 71-master-sshd-motd.yaml
   - 71-worker-sshd-motd.yaml
-  - motd
