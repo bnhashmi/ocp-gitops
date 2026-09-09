@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bgd
+spec:
+  destination:
+    namespace: bgd
+    server: https://kubernetes.default.svc
+  source:
+    path: bgd/base
+    repoURL: https://github.com/gitops-examples/getting-started
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
