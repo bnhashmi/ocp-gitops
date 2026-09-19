@@ -1,0 +1,70 @@
+apiVersion: observability.openshift.io/v1
+kind: ClusterLogForwarder
+metadata:
+  name: log-to-syslog
+  namespace: openshift-logging
+spec:
+  managementState: Managed
+  serviceAccount:
+    name: log-collector
+
+  inputs:
+  - name: critical-apps
+    type: application
+    application:
+      selector:
+        matchLabels:
+          logging: critical
+
+  outputs:
+  - name: audit-syslog
+    type: syslog
+    syslog:
+      url: tcp://utility.lab.example.com:514
+      msgId: audit
+      appName: ocp-lab
+      facility: user
+      procId: vector
+      rfc: RFC5424
+      severity: informational
+
+  - name: apps-syslog
+    type: syslog
+    syslog:
+      url: tcp://utility.lab.example.com:514
+      msgId: apps
+      appName: ocp-lab
+      facility: user
+      procId: vector
+      rfc: RFC5424
+      severity: informational
+
+  - name: infra-syslog
+    type: syslog
+    syslog:
+      url: tcp://utility.lab.example.com:514
+      msgId: infra
+      appName: ocp-lab
+      facility: user
+      procId: vector
+      rfc: RFC5424
+      severity: informational
+
+  pipelines:
+  - name: critical-apps-syslog
+    inputRefs:
+      - critical-apps
+    outputRefs:
+      - apps-syslog
+
+  - name: infra-syslog
+    inputRefs:
+      - infrastructure
+    outputRefs:
+      - infra-syslog
+
+  - name: audit-syslog
+    inputRefs:
+      - audit
+    outputRefs:
+      - audit-syslog
