@@ -17,8 +17,8 @@ spec:
     syslog:
       appName: ocp-lab
       facility: user
-      msgId: vector
-      procId: apps
+      msgId: apps
+      procId: vector
       rfc: RFC5424
       severity: informational
       url: tcp://utility.lab.example.com:514
@@ -27,8 +27,8 @@ spec:
     syslog:
       appName: ocp-lab
       facility: user
-      msgId: vector
-      procId: audit
+      msgId: audit
+      procId: vector
       rfc: RFC5424
       severity: informational
       url: tcp://utility.lab.example.com:514
@@ -37,8 +37,8 @@ spec:
     syslog:
       appName: ocp-lab
       facility: user
-      msgId: vector
-      procId: infra
+      msgId: infra
+      procId: vector
       rfc: RFC5424
       severity: informational
       url: tcp://utility.lab.example.com:514
