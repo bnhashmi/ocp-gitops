@@ -23,4 +23,4 @@ spec:
       ca: 
         name: ldap-auth-ca
       insecure: false 
-      url: "ldaps://idm.ocp4..example.com/cn=users,cn=accounts,dc=ocp4,dc=example,dc=com?uid" 
+      url: "ldaps://idm.ocp4.example.com/cn=users,cn=accounts,dc=ocp4,dc=example,dc=com?uid" 
