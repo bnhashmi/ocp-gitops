@@ -1,0 +1,32 @@
+Q4 verification commands
+========================
+
+Operator:
+  oc get subscription,csv -n openshift-gitops-operator
+
+Argo CD route TLS:
+  oc get route -n openshift-gitops
+  oc get route openshift-gitops-server -n openshift-gitops -o jsonpath='{.spec.tls.termination}{"\n"}'
+
+Group:
+  oc get group gitops-admins -o yaml
+
+RBAC:
+  oc get argocd openshift-gitops -n openshift-gitops -o jsonpath='{.spec.rbac.policy}{"\n"}{.spec.rbac.scopes}{"\n"}'
+
+Trusted CA ConfigMap:
+  oc get cm cluster-root-ca-bundle -n openshift-gitops -o yaml
+
+Expected injected key:
+  data.ca-bundle.crt
+
+Argo CD repo CA mount:
+  oc get argocd openshift-gitops -n openshift-gitops -o yaml | grep -A20 -B5 cluster-root-ca-bundle
+
+Expected values:
+  name: cluster-root-ca-bundle
+  mountPath: /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
+  subPath: ca-bundle.crt
+
+Repo-server deployment/pod (optional runtime verification):
+  oc get deploy,pod -n openshift-gitops | grep repo-server
