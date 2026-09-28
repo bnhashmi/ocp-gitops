@@ -1,0 +1,54 @@
+apiVersion: observability.openshift.io/v1
+kind: ClusterLogForwarder
+metadata:
+  name: collector
+  namespace: openshift-logging
+spec:
+  managementState: Managed
+
+  serviceAccount:
+    name: log-collector
+
+  outputs:
+  - name: syslog-apps
+    type: syslog
+    syslog:
+      url: tcp://log.domain21.example.com:514
+      rfc: RFC5424
+      appName: openshift
+      procId: app
+
+  - name: syslog-infra
+    type: syslog
+    syslog:
+      url: tcp://log.domain21.example.com:514
+      rfc: RFC5424
+      appName: openshift
+      procId: infra
+
+  - name: syslog-audit
+    type: syslog
+    syslog:
+      url: tcp://vault.domain21.example.com:514
+      rfc: RFC5424
+      appName: openshift
+      procId: audit
+
+  pipelines:
+  - name: syslog-apps
+    inputRefs:
+    - application
+    outputRefs:
+    - syslog-apps
+
+  - name: syslog-infra
+    inputRefs:
+    - infrastructure
+    outputRefs:
+    - syslog-infra
+
+  - name: syslog-audit
+    inputRefs:
+    - audit
+    outputRefs:
+    - syslog-audit
