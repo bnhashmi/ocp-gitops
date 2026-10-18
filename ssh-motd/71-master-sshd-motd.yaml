@@ -1,9 +1,9 @@
 apiVersion: machineconfiguration.openshift.io/v1
 kind: MachineConfig
 metadata:
-  name: 71-master-sshd-motd 
   labels:
     machineconfiguration.openshift.io/role: master
+  name: 71-master-sshd-motd.yaml 
 spec:
   baseOSExtensionsContainerImage: ""
   config:

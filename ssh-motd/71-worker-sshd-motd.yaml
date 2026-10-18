@@ -1,9 +1,9 @@
 apiVersion: machineconfiguration.openshift.io/v1
 kind: MachineConfig
 metadata:
-  name: 71-worker-sshd-motd 
   labels:
     machineconfiguration.openshift.io/role: worker
+  name: 71-worker-sshd-motd.yaml 
 spec:
   baseOSExtensionsContainerImage: ""
   config:
